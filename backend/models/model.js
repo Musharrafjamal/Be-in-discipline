@@ -1,12 +1,12 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const schema = new mongoose.Schema({
-    item: {
-        type: String,
-        require: true
-    }
-})
+  item: String,
+  title: String,
+  date: String,
+  time: String,
+});
 
-const ListModel = mongoose.model('items', schema)
+const ListModel = mongoose.model("items", schema);
 
-module.exports = ListModel
+module.exports = ListModel;

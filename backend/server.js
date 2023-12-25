@@ -14,9 +14,7 @@ app.use(express.json());
 app.use(cors());
 
 //Connect to DB
-mongoose.connect(
-  "mongodb+srv://musharrafjamal92:Nl3fqjnBt0OV8qqt@cluster1.gqt9nep.mongodb.net/?retryWrites=true&w=majority"
-);
+mongoose.connect(process.env.MONGO_URL);
 
 //GET home-page
 
@@ -31,8 +29,11 @@ app.get("/", async (req, res) => {
 
 app.post("/", (req, res) => {
   const item = req.body.item;
+  const title = req.body.title;
+  const date = req.body.date;
+  const time = req.body.time;
   try {
-    const newItem = new listModel({ item: item });
+    const newItem = new listModel({ title: title, item: item, date, time });
     const saveItem = newItem.save();
     res.status(201).json(saveItem);
   } catch (err) {

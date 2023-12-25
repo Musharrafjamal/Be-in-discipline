@@ -1,0 +1,30 @@
+.Task-box-wrapper{
+    border-radius: 25px;
+    background: white;
+    box-shadow: 4px 4px 5px 1px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    position: relative;
+    transition: all 400ms linear;
+}
+.Task-box-wrapper p{
+    font-size: .8rem;
+    margin-bottom: 2rem;
+}
+.Task-box-wrapper span{
+    font-size: .8rem;
+    color: #252525;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+}
+.Task-box-wrapper button{
+    background: transparent;
+    border: none;
+    color: rgba(255, 0, 46, 0.75);
+    outline: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
