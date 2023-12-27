@@ -30,7 +30,7 @@ const Home = () => {
     setDate(`${day}-${month}-${year}`);
     setTime(`${hours}:${minutes}`);
   }, [minutes]);
-
+  
   const fetchData = async () => {
     try {
       const response = await axios.get("http://localhost:5000/");
