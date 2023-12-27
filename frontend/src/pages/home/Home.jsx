@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
+import Nav from "../../components/nav/Nav";
 import axios from "axios";
 import Input from "../../components/input/Input";
 import TaskBox from "../../components/task-box/TaskBox";
@@ -8,20 +9,22 @@ const Home = () => {
   const [list, setList] = useState([]);
   const [title, setTitle] = useState("");
   const [newItem, setNewItem] = useState("");
-  const [loading, setLoading] = useState(false);
 
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
 
   //Current date and time
+  function padWithZero(value) {
+    return value < 10 ? `0${value}` : value;
+  }
 
   const currentDateAndTime = new Date();
   // Get the date and time components separately
   const year = currentDateAndTime.getFullYear();
-  const month = currentDateAndTime.getMonth() + 1; // Months are zero-based
-  const day = currentDateAndTime.getDate();
-  const hours = currentDateAndTime.getHours();
-  const minutes = currentDateAndTime.getMinutes();
+  const month = padWithZero(currentDateAndTime.getMonth() + 1); // Month is zero-based, so add 1
+  const day = padWithZero(currentDateAndTime.getDate());
+  const hours = padWithZero(currentDateAndTime.getHours());
+  const minutes = padWithZero(currentDateAndTime.getMinutes());
 
   useEffect(() => {
     setDate(`${day}-${month}-${year}`);
@@ -35,25 +38,23 @@ const Home = () => {
       console.log(response.data);
     } catch (error) {
       console.error("Getting error on fetching data", error);
-    } finally {
-      setLoading(false);
     }
   };
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [list.length]);
 
   const handlePostItem = async (e) => {
     e.preventDefault();
     try {
       await axios.post("http://localhost:5000/", {
-        title,
+        title: title.toUpperCase(),
         item: newItem,
         date,
         time,
       });
       setList((prevList) => [...prevList, { item: newItem }]);
-      fetchData();
+      // fetchData();
     } catch (err) {
       console.error("Error occurs while posting data to server", err);
     }
@@ -71,9 +72,10 @@ const Home = () => {
 
   return (
     <div className="home-wrapper">
+      <Nav />
       <div className="home-upper-wrapper">
         {list.map((item, i) => (
-          <TaskBox item={item} i={i} handleDeleteItem={handleDeleteItem} />
+          <TaskBox item={item} handleDeleteItem={handleDeleteItem} key={i} />
         ))}
       </div>
       <div className="home-bottom-wrapper">
