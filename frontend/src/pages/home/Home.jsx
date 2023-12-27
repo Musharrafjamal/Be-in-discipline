@@ -29,7 +29,7 @@ const Home = () => {
   useEffect(() => {
     setDate(`${day}-${month}-${year}`);
     setTime(`${hours}:${minutes}`);
-  }, [minutes])
+  }, [minutes]);
 
   const fetchData = async () => {
     try {
