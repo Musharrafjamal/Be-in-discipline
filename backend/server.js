@@ -7,7 +7,7 @@ require("dotenv").config();
 
 const app = express();
 
-//Middlewares
+//Middlewares:
 
 app.use(bodyParser.json());
 app.use(express.json());
