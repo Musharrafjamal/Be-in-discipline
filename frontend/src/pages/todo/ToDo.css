@@ -1,0 +1,15 @@
+.to-do-wrapper {
+  padding-bottom: 6rem;
+  background: linear-gradient(180deg, #fff 0%, #ffe2b6 100%);
+}
+.to-do-upper-wrapper {
+  display: grid;
+  grid-gap: 2rem;
+  padding: 0 3rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+.to-do-bottom-wrapper {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}

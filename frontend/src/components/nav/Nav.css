@@ -1,12 +1,22 @@
-
 .nav-container{
     display: flex;
     justify-content: space-between;
     padding: 2rem 3rem;
     align-items: center;
 }
-.logo{
+.logo-wrapper{
+    cursor: pointer;
+}
+.logo-wrapper span{
     font-size: 2rem;
+    line-height: normal;
+}
+.logo-wrapper p{
+    font-size: .8rem;
+    font-family: 'Space Grotesk', sans-serif;
+    text-align: right;
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: 500;
 }
 .profile-wrapper{
     display: flex;
