@@ -1,6 +1,7 @@
-.to-do-wrapper {
+.to-do-container {
   padding-bottom: 6rem;
-  background: linear-gradient(180deg, #fff 0%, #ffe2b6 100%);
+  /* background: linear-gradient(180deg, #fff 0%, #ffe2b6 100%); */
+  background: #fff;
 }
 .to-do-upper-wrapper {
   display: grid;

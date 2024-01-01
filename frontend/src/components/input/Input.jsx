@@ -5,8 +5,6 @@ const Input = ({ handlePostItem, setTitle, setNewItem }) => {
   return (
     <form
       className="input-container"
-      action="/"
-      method="post"
       onSubmit={handlePostItem}
     >
       <input

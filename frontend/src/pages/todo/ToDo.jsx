@@ -18,6 +18,8 @@ const ToDo = () => {
     return value < 10 ? `0${value}` : value;
   }
 
+  const username = localStorage.getItem("username")
+
   const currentDateAndTime = new Date();
   // Get the date and time components separately
   const year = currentDateAndTime.getFullYear();
@@ -31,10 +33,11 @@ const ToDo = () => {
     setTime(`${hours}:${minutes}`);
   }, [minutes]);
   const fetchData = async () => {
+    console.log(username)
     try {
-      const response = await axios.get("http://localhost:5000/");
-      setList(response.data);
-      console.log(response.data);
+      const response = await axios.get(`http://localhost:5000/auth/app/${username}`);
+      setList(response.data.item);
+      // console.log(response.data)
     } catch (error) {
       console.error("Getting error on fetching data", error);
     }
@@ -46,7 +49,7 @@ const ToDo = () => {
   const handlePostItem = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/", {
+      await axios.post(`http://localhost:5000/auth/app/${username}`, {
         title: title.toUpperCase(),
         item: newItem,
         date,
@@ -58,12 +61,12 @@ const ToDo = () => {
       console.error("Error occurs while posting data to server", err);
     }
   };
-  const handleDeleteItem = async (id) => {
+  const handleDeleteItem = async (i) => {
     try {
-      await axios.delete(`http://localhost:5000/${id}`);
-      console.log(`Item with id ${id} deleted successfully`);
+      await axios.delete(`http://localhost:5000/auth/app/${username}/${i}`);
+      console.log(`Item with id ${i} deleted successfully`);
 
-      setList((prevList) => prevList.filter((item) => item._id !== id));
+      setList((prevList) => prevList.filter((item, index) => index !== i));
     } catch (err) {
       console.error("Error occurs while deleting data to server", err);
     }
@@ -73,7 +76,7 @@ const ToDo = () => {
       <Nav />
       <div className="to-do-upper-wrapper">
         {list.map((item, i) => (
-          <TaskBox item={item} handleDeleteItem={handleDeleteItem} key={i} />
+          <TaskBox item={item} handleDeleteItem={handleDeleteItem} key={i} i={i} />
         ))}
       </div>
       <div className="to-do-bottom-wrapper">
