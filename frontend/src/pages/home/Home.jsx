@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Home.css";
 import Nav from "../../components/nav/Nav";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux"
+import { toogleSelector } from "../../redux/slice/toggleSlice";
 
 const Home = () => {
   const isAuthenticated = localStorage.getItem("token");
+  const isDarkMode = useSelector(toogleSelector)
+
+  console.log(isDarkMode)
   return (
-    <div className="home-container">
+    <div
+      className="home-container"
+      // style={{
+      //   background: isLightMode ? "" : "gray",
+      // }}
+    >
       <Nav />
       <div className="home-wrapper">
         <div className="home-upper-wrapper">

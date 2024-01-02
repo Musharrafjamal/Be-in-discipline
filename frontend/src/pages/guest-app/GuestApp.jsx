@@ -51,9 +51,9 @@ const GuestApp = () => {
   };
 
   return (
-    <>
+    <div className="guest-app-container">
       <Nav />
-      <div className="to-do-upper-wrapper">
+      <div className="guest-app-upper-wrapper">
         {list.map((item, i) => (
           <TaskBox
             item={item}
@@ -63,14 +63,14 @@ const GuestApp = () => {
           />
         ))}
       </div>
-      <div className="to-do-bottom-wrapper">
+      <div className="guest-app-bottom-wrapper">
         <Input
           handlePostItem={handlePostItem}
           setTitle={setTitle}
           setNewItem={setNewItem}
         />
       </div>
-    </>
+    </div>
   );
 };
 

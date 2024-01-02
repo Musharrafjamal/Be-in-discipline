@@ -28,7 +28,7 @@
   width: 50%;
 }
 .home-lower-wrapper span {
-  font-size: 6rem;
+  font-size: clamp(2rem, 0.7952rem + 6.4257vw, 6rem);
   /* line-height: 100%; */
   color: #202020;
 }

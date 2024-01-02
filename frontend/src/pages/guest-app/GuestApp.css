@@ -1,0 +1,16 @@
+.guest-app-container {
+  padding-bottom: 6rem;
+  min-height: 100vh;
+  background: #fff;
+}
+.guest-app-upper-wrapper {
+  display: grid;
+  grid-gap: 2rem;
+  padding: 0 3rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+.guest-app-bottom-wrapper {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}

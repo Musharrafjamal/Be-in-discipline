@@ -33,7 +33,6 @@ const ToDo = () => {
     setTime(`${hours}:${minutes}`);
   }, [minutes]);
   const fetchData = async () => {
-    console.log(username)
     try {
       const response = await axios.get(`http://localhost:5000/auth/app/${username}`);
       setList(response.data.item);
