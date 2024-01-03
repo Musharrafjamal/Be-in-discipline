@@ -16,7 +16,7 @@ const Register = () => {
   const handleRegister = async () => {
     console.log({ username, email, password, profilePic });
     try {
-      await axios.post("https://beindescipline-server.vercel.app/auth/register", {
+      await axios.post("https://beindescipline-server.onrender.com/auth/register", {
         username,
         email,
         password,
