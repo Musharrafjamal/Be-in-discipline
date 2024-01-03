@@ -8,12 +8,7 @@ const app = express();
 
 //Middlewares:
 
-app.use(
-  cors({
-    origin: ["https://beindiscipline.vercel.app"],
-    methods: ["POST", "GET"],
-  })
-);
+app.use(cors());
 app.use(express.json({ limit: "500mb" }));
 app.use(express.urlencoded({ extended: true, limit: "500mb" }));
 app.use("/auth", authRoutes);
