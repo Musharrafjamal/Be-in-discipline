@@ -1,8 +1,8 @@
 .login-container {
   display: flex;
   justify-content: center;
-  height: calc(100vh - 8rem);
-  width: 100vw;
+  height: calc(100vh - 8.35rem);
+    width: 100%;
 }
 .login-left-wrapper {
   width: 50%;
