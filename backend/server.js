@@ -11,7 +11,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["https://beindescipline.vercel.app"],
+    origin: ["https://beindescipline.vercel.app", "https://beindescipline-api.vercel.app"],
     methods: ["POST", "GET"],
     credentials: true,
   })
