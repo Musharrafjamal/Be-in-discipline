@@ -24,6 +24,9 @@ app.use("/auth", authRoutes);
 app.get("/auth", (req, res) => {
   res.send("This is a protected route");
 });
+app.get("/", (req, res) => {
+  res.send("server is running...");
+});
 
 //Connect to DB
 mongoose.connect(process.env.MONGO_URL);
