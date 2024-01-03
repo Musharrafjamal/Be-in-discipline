@@ -14,7 +14,7 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post("https://beindescipline-api.vercel.app/auth/login", {
+      const response = await axios.post("https://beindescipline-server.vercel.app/auth/login", {
         username,
         password,
       });

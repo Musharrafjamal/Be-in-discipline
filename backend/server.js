@@ -11,9 +11,8 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["https://beindescipline.vercel.app", "https://beindescipline-api.vercel.app"],
-    methods: ["POST", "GET"],
-    credentials: true,
+    origin: ["https://beindescipline.vercel.app"],
+    methods: ["POST", "GET"]
   })
 );
 app.use(express.json({ limit: "500mb" }));
