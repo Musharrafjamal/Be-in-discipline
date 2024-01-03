@@ -16,7 +16,7 @@ const Register = () => {
   const handleRegister = async () => {
     console.log({ username, email, password, profilePic });
     try {
-      await axios.post("https://beindescipline-qism3hsrh-musharraf008s-projects.vercel.app/auth/register", {
+      await axios.post("https://beindescipline-api.vercel.app/auth/register", {
         username,
         email,
         password,

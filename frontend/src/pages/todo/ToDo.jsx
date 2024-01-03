@@ -34,7 +34,7 @@ const ToDo = () => {
   }, [minutes]);
   const fetchData = async () => {
     try {
-      const response = await axios.get(`https://beindescipline-qism3hsrh-musharraf008s-projects.vercel.app/auth/app/${username}`);
+      const response = await axios.get(`https://beindescipline-api.vercel.app/auth/app/${username}`);
       setList(response.data.item);
       // console.log(response.data)
     } catch (error) {
@@ -48,7 +48,7 @@ const ToDo = () => {
   const handlePostItem = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`https://beindescipline-qism3hsrh-musharraf008s-projects.vercel.app/auth/app/${username}`, {
+      await axios.post(`https://beindescipline-api.vercel.app/auth/app/${username}`, {
         title: title.toUpperCase(),
         item: newItem,
         date,
@@ -62,7 +62,7 @@ const ToDo = () => {
   };
   const handleDeleteItem = async (i) => {
     try {
-      await axios.delete(`https://beindescipline-qism3hsrh-musharraf008s-projects.vercel.app/auth/app/${username}/${i}`);
+      await axios.delete(`https://beindescipline-api.vercel.app/auth/app/${username}/${i}`);
       console.log(`Item with id ${i} deleted successfully`);
 
       setList((prevList) => prevList.filter((item, index) => index !== i));
