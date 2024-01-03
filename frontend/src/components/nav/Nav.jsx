@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { MdLogout } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { isDarkMode } from "../../redux/slice/toggleSlice";
+import { useSelector } from "react-redux";
+import { toogleSelector } from "../../redux/slice/toggleSlice";
 
 const Nav = () => {
   const navigate = useNavigate();
@@ -25,8 +27,8 @@ const Nav = () => {
   const dispatch = useDispatch();
 
   const handleCheckboxChange = () => {
-    setChecked(!isChecked)
-    dispatch(isDarkMode())
+    setChecked(!isChecked);
+    dispatch(isDarkMode());
   };
 
   useEffect(() => {
@@ -42,8 +44,18 @@ const Nav = () => {
           navigate("/");
         }}
       >
-        <span>Be in discipline</span>
-        <p>
+        <span
+          style={{
+            color: isChecked ? "white" : "",
+          }}
+        >
+          Be in discipline
+        </span>
+        <p
+          style={{
+            color: isChecked ? "rgba(255, 255, 255, 0.75)" : "",
+          }}
+        >
           Developed by{" "}
           <a href="https://musharraf-39357.web.app" target="_blank">
             Musharraf Jamal

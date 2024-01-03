@@ -19,17 +19,15 @@
   font-weight: 500;
 }
 .logo-wrapper a {
-  color: rgba(0, 0, 0, 0.8);
   text-decoration: underline;
+  color: inherit;
 }
 .profile-wrapper {
   display: flex;
   align-items: center;
   gap: 1rem;
-  /* padding: 0.5rem 1rem; */
   padding: 1rem 2rem;
   border-radius: 25px;
-  /* background: rgb(233, 233, 233); */
   box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.25);
 }
 .profile-wrapper img {
@@ -37,6 +35,7 @@
   border-radius: 100%;
 }
 .nav-btns-wrapper {
+  background: rgba(255, 255, 255, 0.5);
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -47,11 +46,11 @@
 .nav-register-btn {
   border-radius: 4rem;
   background: transparent;
-  padding: 0.5rem 2rem;
+  padding: 0.7rem 1.5rem;
   outline: none;
   font-size: 0.8rem;
   text-decoration: none;
-  border: 2px solid #252525;
+  box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.5);
   color: #252525;
   transition: all 400ms ease-in-out;
 }
@@ -59,15 +58,13 @@
   background: rgba(0, 0, 0, 0.75);
   color: white;
   box-shadow: 9px 7px 11.4px 0px rgba(255, 255, 255, 0.25) inset;
-  border: 2px solid #707070;
 }
 .nav-login-btn {
   border-radius: 4rem;
   background: rgba(0, 0, 0, 0.75);
   color: white;
   box-shadow: 9px 7px 11.4px 0px rgba(255, 255, 255, 0.25) inset;
-  border: 2px solid #707070;
-  padding: 0.5rem 2rem;
+  padding: 0.7rem 1.5rem;
   outline: none;
   font-size: 0.8rem;
   text-decoration: none;
@@ -75,9 +72,8 @@
 }
 .nav-login-btn:hover {
   background: transparent;
-  border: 2px solid #252525;
+  box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.5);
   color: #252525;
-  box-shadow: none;
 }
 .theme-checkbox {
   --toggle-size: 16px;

@@ -11,7 +11,6 @@
   align-items: center;
   justify-content: center;
   padding: 3rem 0;
-  /* gap: 2rem; */
 }
 .home-upper-wrapper {
   font-size: 2rem;
@@ -29,7 +28,6 @@
 }
 .home-lower-wrapper span {
   font-size: clamp(2rem, 0.7952rem + 6.4257vw, 6rem);
-  /* line-height: 100%; */
   color: #202020;
 }
 .home-btns-wrapper {
@@ -40,20 +38,15 @@
 }
 .home-first-btn {
   border-radius: 4rem;
+  /* background: white; */
   background: transparent;
-  padding: 0.6rem 2.5rem;
+  padding: 0.7rem 2.5rem;
   outline: none;
   text-decoration: none;
-  border: 2px solid #000;
+  /* border: 2px solid #000; */
   color: #252525;
   transition: all 400ms ease-in-out;
-}
-.home-first-btn:hover {
-  background: rgba(0, 0, 0, 0.75);
-  color: white;
-  box-shadow: 8px 5px 8.6px 0px rgba(0, 0, 0, 0.25),
-    9px 7px 11.4px 0px rgba(255, 255, 255, 0.25) inset;
-  border: 2px solid navajowhite;
+  box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.5);
 }
 .home-second-btn {
   text-decoration: underline;
@@ -63,6 +56,5 @@ footer {
   position: absolute;
   bottom: 2rem;
   font-size: 0.8rem;
-  /* color: #181818; */
   font-family: "Space Grotesk", sans-serif;
 }
