@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { redirect } from "react-router-dom";
 import "./login.css";
 import Nav from "../../components/nav/Nav";
 import img from "../../assets/img/login-svg.svg";
@@ -23,7 +24,8 @@ const Login = () => {
       localStorage.setItem("username", username);
       localStorage.setItem("profilePic", response.data.profilePic);
 
-      navigate("/app");
+      // navigate("/app");
+      redirect("/app")
     } catch (err) {
       console.log("Login falid", err.message);
       setLoginFailed(true);
