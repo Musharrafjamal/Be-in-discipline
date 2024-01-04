@@ -48,7 +48,7 @@ const Home = () => {
           {isAuthenticated ? (
             <div className="home-btns-wrapper">
               <Link className="home-first-btn" to="/app" style={{
-                  background: isDarkMode ? "white" : "",
+                  background: isDarkMode ? "rgba(255, 255, 255, 0.75)" : "",
                 }}>
                 Go to app
               </Link>
@@ -59,7 +59,7 @@ const Home = () => {
                 className="home-first-btn"
                 to="/login"
                 style={{
-                  background: isDarkMode ? "white" : "",
+                  background: isDarkMode ? "rgba(255, 255, 255, 0.75)" : "",
                 }}
               >
                 Login
@@ -68,7 +68,7 @@ const Home = () => {
                 className="home-second-btn"
                 to="/guest"
                 style={{
-                  color: isDarkMode ? "white" : "",
+                  color: isDarkMode ? "rgba(255, 255, 255, 0.75)" : "",
                 }}
               >
                 Start without login
