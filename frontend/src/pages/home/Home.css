@@ -37,15 +37,18 @@
   margin-top: 1rem;
 }
 .home-first-btn {
-  border-radius: 4rem;
+  border-radius: 5px;
   background: transparent;
-  padding: 0.7rem 2.5rem;
+  padding: 0.6rem 2.2rem;
   outline: none;
   text-decoration: none;
   color: #252525;
   transition: all 400ms ease-in-out;
   box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.5);
   cursor: pointer;
+}
+.home-first-btn:hover{
+  transform: translateY(-4px);
 }
 .home-second-btn {
   text-decoration: underline;

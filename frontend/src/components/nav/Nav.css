@@ -32,6 +32,7 @@
 }
 .profile-wrapper img {
   width: 50px;
+  height: 50px;
   border-radius: 100%;
 }
 .nav-btns-wrapper {
@@ -44,9 +45,9 @@
   padding: 1rem 2rem;
 }
 .nav-register-btn {
-  border-radius: 4rem;
+  border-radius: 5px;
   background: transparent;
-  padding: 0.7rem 1.5rem;
+  padding: 0.6rem 1.5rem;
   outline: none;
   font-size: 0.8rem;
   text-decoration: none;
@@ -57,14 +58,15 @@
 .nav-register-btn:hover {
   background: rgba(0, 0, 0, 0.75);
   color: white;
-  box-shadow: 9px 7px 11.4px 0px rgba(255, 255, 255, 0.25) inset;
+  box-shadow: none;
+  /* box-shadow: 9px 7px 4px 0px rgba(255, 255, 255, 0.25) inset; */
 }
 .nav-login-btn {
-  border-radius: 4rem;
+  border-radius: 5px;
   background: rgba(0, 0, 0, 0.75);
   color: white;
-  box-shadow: 9px 7px 11.4px 0px rgba(255, 255, 255, 0.25) inset;
-  padding: 0.7rem 1.5rem;
+  /* box-shadow: 3px 3px 10px 0px rgba(255, 255, 255, 0.25) inset; */
+  padding: 0.6rem 1.5rem;
   outline: none;
   font-size: 0.8rem;
   text-decoration: none;

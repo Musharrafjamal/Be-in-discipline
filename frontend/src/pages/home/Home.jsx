@@ -9,7 +9,6 @@ const Home = () => {
   const isAuthenticated = localStorage.getItem("token");
   const isDarkMode = useSelector(toogleSelector);
 
-  console.log(isDarkMode);
   return (
     <div
       className="home-container"
@@ -48,7 +47,9 @@ const Home = () => {
           </p>
           {isAuthenticated ? (
             <div className="home-btns-wrapper">
-              <Link className="home-first-btn" to="/app">
+              <Link className="home-first-btn" to="/app" style={{
+                  background: isDarkMode ? "white" : "",
+                }}>
                 Go to app
               </Link>
             </div>

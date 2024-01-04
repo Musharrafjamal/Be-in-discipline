@@ -12,11 +12,13 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [profilePic, setProfilePic] = useState({ profilePic: "" });
+  const [loading, setLoading] = useState(false);
   const isDarkMode = useSelector(toogleSelector);
 
   const navigate = useNavigate();
 
   const handleRegister = async () => {
+    setLoading(true);
     console.log({ username, email, password, profilePic });
     try {
       await axios.post(
@@ -32,6 +34,8 @@ const Register = () => {
       navigate("/login");
     } catch (err) {
       console.error("Registration failed:", err.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -55,82 +59,123 @@ const Register = () => {
   }
 
   return (
-    <div
-      style={{
-        background: isDarkMode
-          ? "linear-gradient(180deg, #272727 0%, #151515 100%)"
-          : "",
-        color: isDarkMode ? "rgba(255, 255, 255, 0.75)" : "",
-      }}
-    >
-      <Nav />
-      <div className="register-container">
-        <div className="register-left-wrapper">
-          <form
-            className="register-form"
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleRegister();
-            }}
+    <>
+      {loading ? (
+        <div className="loading-wrapper">
+          <div
+            aria-label="Orange and tan hamster running in a metal wheel"
+            role="img"
+            className="wheel-and-hamster"
           >
-            <h2>Register</h2>
-            <input
-              type="text"
-              placeholder="Name"
-              name="username"
-              onChange={(e) => setUsername(e.target.value)}
-              style={{
-                color: isDarkMode ? "white" : "",
-                borderBottom: isDarkMode ? "2px solid white" : "",
-              }}
-              className={isDarkMode ? "register-form-input dark-placeholder" : "register-form-input"}
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              className={isDarkMode ? "register-form-input dark-placeholder" : "register-form-input"}
-              name="email"
-              onChange={(e) => setEmail(e.target.value)}
-              style={{
-                color: isDarkMode ? "white" : "",
-                borderBottom: isDarkMode ? "2px solid white" : "",
-              }}
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              className={isDarkMode ? "register-form-input dark-placeholder" : "register-form-input"}
-              name="password"
-              onChange={(e) => setPassword(e.target.value)}
-              style={{
-                color: isDarkMode ? "white" : "",
-                borderBottom: isDarkMode ? "2px solid white" : "",
-              }}
-            />
-            <div className="register-form-file-input-wrapper">
-              {/* <label htmlFor="profilePic">Upload your Photo</label> */}
-              <input
-                id="profilePic"
-                type="file"
-                name="profilePic"
-                onChange={handleFileChange}
-              />
+            <div className="wheel"></div>
+            <div className="hamster">
+              <div className="hamster__body">
+                <div className="hamster__head">
+                  <div className="hamster__ear"></div>
+                  <div className="hamster__eye"></div>
+                  <div className="hamster__nose"></div>
+                </div>
+                <div className="hamster__limb hamster__limb--fr"></div>
+                <div className="hamster__limb hamster__limb--fl"></div>
+                <div className="hamster__limb hamster__limb--br"></div>
+                <div className="hamster__limb hamster__limb--bl"></div>
+                <div className="hamster__tail"></div>
+              </div>
             </div>
-            <button
-              type="submit"
-              style={{
-                background: isDarkMode ? "white" : "",
-              }}
-            >
-              Register
-            </button>
-          </form>
+            <div className="spoke"></div>
+          </div>
         </div>
-        <div className="register-img-wrapper">
-          <img src={img} alt="" />
+      ) : (
+        <div
+          style={{
+            background: isDarkMode
+              ? "linear-gradient(180deg, #272727 0%, #151515 100%)"
+              : "",
+            color: isDarkMode ? "rgba(255, 255, 255, 0.75)" : "",
+          }}
+        >
+          <Nav />
+          <div className="register-container">
+            <div className="register-left-wrapper">
+              <form
+                className="register-form"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleRegister();
+                }}
+              >
+                <h2>Register</h2>
+                <input
+                  type="text"
+                  placeholder="Name"
+                  name="username"
+                  onChange={(e) => setUsername(e.target.value)}
+                  style={{
+                    color: isDarkMode ? "white" : "",
+                    borderBottom: isDarkMode ? "2px solid white" : "",
+                  }}
+                  className={
+                    isDarkMode
+                      ? "register-form-input dark-placeholder"
+                      : "register-form-input"
+                  }
+                />
+                <input
+                  type="email"
+                  placeholder="Email"
+                  className={
+                    isDarkMode
+                      ? "register-form-input dark-placeholder"
+                      : "register-form-input"
+                  }
+                  name="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  style={{
+                    color: isDarkMode ? "white" : "",
+                    borderBottom: isDarkMode ? "2px solid white" : "",
+                  }}
+                />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  className={
+                    isDarkMode
+                      ? "register-form-input dark-placeholder"
+                      : "register-form-input"
+                  }
+                  name="password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  style={{
+                    color: isDarkMode ? "white" : "",
+                    borderBottom: isDarkMode ? "2px solid white" : "",
+                  }}
+                />
+                <div className="register-form-file-input-wrapper">
+                  {/* <label htmlFor="profilePic">Upload your Photo</label> */}
+                  <input
+                    id="profilePic"
+                    type="file"
+                    name="profilePic"
+                    onChange={handleFileChange}
+                  />
+                </div>
+                <button
+                  type="submit"
+                  style={{
+                    background: isDarkMode ? "white" : "",
+                  }}
+                >
+                  Register
+                </button>
+              </form>
+            </div>
+            <div className="register-img-wrapper">
+              <img src={img} alt="" />
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 
