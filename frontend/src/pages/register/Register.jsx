@@ -111,7 +111,7 @@ const Register = () => {
                 <h2>Register</h2>
                 <input
                   type="text"
-                  placeholder="Name"
+                  placeholder="Username"
                   name="username"
                   onChange={(e) => setUsername(e.target.value)}
                   style={{

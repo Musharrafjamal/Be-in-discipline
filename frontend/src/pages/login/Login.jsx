@@ -97,7 +97,7 @@ const Login = () => {
                 <h2>Login</h2>
                 <input
                   type="text"
-                  placeholder="Email"
+                  placeholder="Username"
                   style={{
                     color: isDarkMode ? "white" : "",
                     borderBottom: isDarkMode ? "2px solid white" : "",
