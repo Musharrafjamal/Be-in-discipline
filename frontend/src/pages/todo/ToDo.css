@@ -14,6 +14,19 @@
   position: fixed;
   bottom: 0;
 }
+@media (max-width: 920px) {
+  .to-do-upper-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 720px) {
+  .to-do-upper-wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .to-do-container{
+    padding-bottom: 10rem;
+  }
+}
 
 .loading-wrapper {
   display: flex;

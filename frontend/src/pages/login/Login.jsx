@@ -4,12 +4,15 @@ import { useNavigate } from "react-router-dom";
 import "./login.css";
 import Nav from "../../components/nav/Nav";
 import img from "../../assets/img/login-svg.svg";
+import { useSelector } from "react-redux";
+import { toogleSelector } from "../../redux/slice/toggleSlice";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loginFailed, setLoginFailed] = useState(false);
   const [loading, setLoading] = useState(false);
+  const isDarkMode = useSelector(toogleSelector);
 
   const navigate = useNavigate();
 
@@ -40,7 +43,14 @@ const Login = () => {
   return (
     <>
       {loading ? (
-        <div className="loading-wrapper">
+        <div
+          className="loading-wrapper"
+          style={{
+            background: isDarkMode
+              ? "linear-gradient(180deg, #272727 0%, #151515 100%)"
+              : "",
+          }}
+        >
           <div
             aria-label="Orange and tan hamster running in a metal wheel"
             role="img"
@@ -65,7 +75,15 @@ const Login = () => {
           </div>
         </div>
       ) : (
-        <div>
+        <div
+        className="login-main-container"
+          style={{
+            background: isDarkMode
+              ? "linear-gradient(180deg, #272727 0%, #151515 100%)"
+              : "",
+            color: isDarkMode ? "rgba(255, 255, 255, 0.75)" : "",
+          }}
+        >
           <Nav />
           <div className="login-container">
             <div className="login-left-wrapper">
@@ -80,18 +98,41 @@ const Login = () => {
                 <input
                   type="text"
                   placeholder="Email"
-                  className="login-form-input"
+                  style={{
+                    color: isDarkMode ? "white" : "",
+                    borderBottom: isDarkMode ? "2px solid white" : "",
+                  }}
+                  className={
+                    isDarkMode
+                      ? "login-form-input dark-placeholder"
+                      : "login-form-input"
+                  }
                   name="username"
                   onChange={(e) => setUsername(e.target.value)}
                 />
                 <input
                   type="password"
                   placeholder="Password"
-                  className="login-form-input"
+                  style={{
+                    color: isDarkMode ? "white" : "",
+                    borderBottom: isDarkMode ? "2px solid white" : "",
+                  }}
+                  className={
+                    isDarkMode
+                      ? "login-form-input dark-placeholder"
+                      : "login-form-input"
+                  }
                   name="password"
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                <button type="submit">Login</button>
+                <button
+                  type="submit"
+                  style={{
+                    background: isDarkMode ? "white" : "",
+                  }}
+                >
+                  Login
+                </button>
                 {loginFailed && (
                   <p
                     style={{

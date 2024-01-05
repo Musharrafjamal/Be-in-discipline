@@ -3,6 +3,8 @@ import "./GuestApp.css";
 import Nav from "../../components/nav/Nav";
 import TaskBox from "../../components/task-box/TaskBox";
 import Input from "../../components/input/Input";
+import { toogleSelector } from "../../redux/slice/toggleSlice";
+import { useSelector } from "react-redux"
 
 const GuestApp = () => {
   const [list, setList] = useState([]);
@@ -11,6 +13,7 @@ const GuestApp = () => {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [loading, setLoading] = useState(false);
+  const isDarkMode = useSelector(toogleSelector);
 
   //Current date and time
   function padWithZero(value) {
@@ -56,7 +59,11 @@ const GuestApp = () => {
   return (
     <>
       {loading ? (
-        <div className="loading-wrapper">
+        <div className="loading-wrapper" style={{
+          background: isDarkMode
+            ? "linear-gradient(180deg, #272727 0%, #151515 100%)"
+            : "",
+        }}>
           <div
             aria-label="Orange and tan hamster running in a metal wheel"
             role="img"
@@ -81,7 +88,11 @@ const GuestApp = () => {
           </div>
         </div>
       ) : (
-        <div className="guest-app-container">
+        <div className="guest-app-container" style={{
+          background: isDarkMode
+            ? "linear-gradient(180deg, #272727 0%, #151515 100%)"
+            : "",
+        }}>
           <Nav />
           <div className="guest-app-upper-wrapper">
             {list.map((item, i) => (

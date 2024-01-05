@@ -14,3 +14,16 @@
   position: fixed;
   bottom: 0;
 }
+@media (max-width: 920px) {
+  .guest-app-upper-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 720px) {
+  .guest-app-upper-wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .guest-app-container{
+    padding-bottom: 10rem;
+  }
+}

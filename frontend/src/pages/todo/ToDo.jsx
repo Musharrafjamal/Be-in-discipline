@@ -5,6 +5,8 @@ import Nav from "../../components/nav/Nav";
 import Input from "../../components/input/Input";
 import TaskBox from "../../components/task-box/TaskBox";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { toogleSelector } from "../../redux/slice/toggleSlice";
 
 const ToDo = () => {
   const navigate = useNavigate();
@@ -17,6 +19,7 @@ const ToDo = () => {
   const [list, setList] = useState([]);
   const [title, setTitle] = useState("");
   const [newItem, setNewItem] = useState("");
+  const isDarkMode = useSelector(toogleSelector);
 
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
@@ -98,7 +101,14 @@ const ToDo = () => {
   return (
     <>
       {loading ? (
-        <div className="loading-wrapper">
+        <div
+          className="loading-wrapper"
+          style={{
+            background: isDarkMode
+              ? "linear-gradient(180deg, #272727 0%, #151515 100%)"
+              : "",
+          }}
+        >
           <div
             aria-label="Orange and tan hamster running in a metal wheel"
             role="img"
@@ -123,7 +133,14 @@ const ToDo = () => {
           </div>
         </div>
       ) : (
-        <div className="to-do-container">
+        <div
+          className="to-do-container"
+          style={{
+            background: isDarkMode
+              ? "linear-gradient(180deg, #272727 0%, #151515 100%)"
+              : "",
+          }}
+        >
           <Nav />
           <div className="to-do-upper-wrapper">
             {list.map((item, i) => (

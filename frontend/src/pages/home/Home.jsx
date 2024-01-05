@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./Home.css";
 import Nav from "../../components/nav/Nav";
 import { Link } from "react-router-dom";
@@ -13,7 +13,9 @@ const Home = () => {
     <div
       className="home-container"
       style={{
-        background: isDarkMode ? "linear-gradient(180deg, #272727 0%, #151515 100%)" : "",
+        background: isDarkMode
+          ? "linear-gradient(180deg, #272727 0%, #151515 100%)"
+          : "",
         color: isDarkMode ? "rgba(255, 255, 255, 0.75)" : "",
       }}
     >
@@ -23,10 +25,7 @@ const Home = () => {
           <i>Make your future</i>{" "}
           <span
             style={{
-              background: isDarkMode
-                ? "linear-gradient(180deg, #FFC060 28.13%, #FFDEAC 100%)"
-                : "",
-              backgroundClip: isDarkMode ? "text" : "",
+              color: isDarkMode ? "#FFC060" : "",
             }}
           >
             BRIGHT
@@ -47,9 +46,13 @@ const Home = () => {
           </p>
           {isAuthenticated ? (
             <div className="home-btns-wrapper">
-              <Link className="home-first-btn" to="/app" style={{
+              <Link
+                className="home-first-btn"
+                to="/app"
+                style={{
                   background: isDarkMode ? "rgba(255, 255, 255, 0.75)" : "",
-                }}>
+                }}
+              >
                 Go to app
               </Link>
             </div>

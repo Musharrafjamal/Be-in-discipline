@@ -61,7 +61,11 @@ const Register = () => {
   return (
     <>
       {loading ? (
-        <div className="loading-wrapper">
+        <div className="loading-wrapper" style={{
+          background: isDarkMode
+            ? "linear-gradient(180deg, #272727 0%, #151515 100%)"
+            : "",
+        }}>
           <div
             aria-label="Orange and tan hamster running in a metal wheel"
             role="img"
@@ -86,7 +90,7 @@ const Register = () => {
           </div>
         </div>
       ) : (
-        <div
+        <div className="register-main-container"
           style={{
             background: isDarkMode
               ? "linear-gradient(180deg, #272727 0%, #151515 100%)"
