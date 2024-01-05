@@ -14,6 +14,7 @@ const Register = () => {
   const [profilePic, setProfilePic] = useState({ profilePic: "" });
   const [loading, setLoading] = useState(false);
   const isDarkMode = useSelector(toogleSelector);
+  const [profilePicUploadedMsg, setProfilePicUploadedMsg] = useState("");
 
   const navigate = useNavigate();
 
@@ -41,6 +42,7 @@ const Register = () => {
 
   const handleFileChange = async (e) => {
     const file = e.target.files[0];
+    setProfilePicUploadedMsg("File uploaded successfully!");
     const base64 = await convertToBase64(file);
     setProfilePic(base64);
   };
@@ -61,11 +63,14 @@ const Register = () => {
   return (
     <>
       {loading ? (
-        <div className="loading-wrapper" style={{
-          background: isDarkMode
-            ? "linear-gradient(180deg, #272727 0%, #151515 100%)"
-            : "",
-        }}>
+        <div
+          className="loading-wrapper"
+          style={{
+            background: isDarkMode
+              ? "linear-gradient(180deg, #272727 0%, #151515 100%)"
+              : "",
+          }}
+        >
           <div
             aria-label="Orange and tan hamster running in a metal wheel"
             role="img"
@@ -90,7 +95,8 @@ const Register = () => {
           </div>
         </div>
       ) : (
-        <div className="register-main-container"
+        <div
+          className="register-main-container"
           style={{
             background: isDarkMode
               ? "linear-gradient(180deg, #272727 0%, #151515 100%)"
@@ -155,7 +161,33 @@ const Register = () => {
                   }}
                 />
                 <div className="register-form-file-input-wrapper">
-                  {/* <label htmlFor="profilePic">Upload your Photo</label> */}
+                  <label
+                    htmlFor="profilePic"
+                    className="profile-pic-label"
+                    style={{
+                      border: isDarkMode ? "2px dotted rgba(255, 255, 255, 0.75)" : "",
+                    }}
+                  >
+                    {profilePicUploadedMsg ? (
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "1rem",
+                        }}
+                      >
+                        <img
+                          src={profilePic}
+                          alt=""
+                          style={{ width: "2rem", height: "2rem" }}
+                        />
+                        <span>Profile pic Added </span>
+                      </div>
+                    ) : (
+                      "Upload your Photo"
+                    )}
+                  </label>
                   <input
                     id="profilePic"
                     type="file"

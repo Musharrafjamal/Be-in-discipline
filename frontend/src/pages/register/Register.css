@@ -40,11 +40,21 @@
   font-size: 1.2rem;
   font-weight: 500;
 }
-
 ::placeholder {
   color: #181818;
   font-size: 1.2rem;
   font-weight: 500;
+}
+.profile-pic-label{
+  border: 2px dotted #252525;
+  padding: 8px 32px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#profilePic{
+  display: none;
 }
 .register-form button {
   border: none;
