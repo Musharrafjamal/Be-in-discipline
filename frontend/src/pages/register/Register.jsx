@@ -116,6 +116,7 @@ const Register = () => {
               >
                 <h2>Register</h2>
                 <input
+                  required
                   type="text"
                   placeholder="Username"
                   name="username"
@@ -131,6 +132,7 @@ const Register = () => {
                   }
                 />
                 <input
+                  required
                   type="email"
                   placeholder="Email"
                   className={
@@ -146,6 +148,7 @@ const Register = () => {
                   }}
                 />
                 <input
+                  required
                   type="password"
                   placeholder="Password"
                   className={
@@ -165,7 +168,9 @@ const Register = () => {
                     htmlFor="profilePic"
                     className="profile-pic-label"
                     style={{
-                      border: isDarkMode ? "2px dotted rgba(255, 255, 255, 0.75)" : "",
+                      border: isDarkMode
+                        ? "2px dotted rgba(255, 255, 255, 0.75)"
+                        : "",
                     }}
                   >
                     {profilePicUploadedMsg ? (
@@ -180,7 +185,11 @@ const Register = () => {
                         <img
                           src={profilePic}
                           alt=""
-                          style={{ width: "2rem", height: "2rem" }}
+                          style={{
+                            width: "2rem",
+                            height: "2rem",
+                            objectFit: "cover",
+                          }}
                         />
                         <span>Profile pic Added </span>
                       </div>
@@ -190,6 +199,7 @@ const Register = () => {
                   </label>
                   <input
                     id="profilePic"
+                    required
                     type="file"
                     name="profilePic"
                     onChange={handleFileChange}
