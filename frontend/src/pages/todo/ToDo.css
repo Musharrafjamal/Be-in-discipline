@@ -30,6 +30,8 @@
 
 .loading-wrapper {
   display: flex;
+  flex-direction: column;
+  gap: 1rem;
   height: 100vh;
   justify-content: center;
   align-items: center;

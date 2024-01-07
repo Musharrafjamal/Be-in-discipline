@@ -24,15 +24,12 @@ const Register = () => {
     setLoading(true);
     console.log({ username, email, password, profilePic });
     try {
-      await axios.post(
-        `${backendUrl}/auth/register`,
-        {
-          username,
-          email,
-          password,
-          profilePic,
-        }
-      );
+      await axios.post(`${backendUrl}/auth/register`, {
+        username,
+        email,
+        password,
+        profilePic,
+      });
       console.log("user saved");
       navigate("/login");
     } catch (err) {
@@ -95,6 +92,9 @@ const Register = () => {
             </div>
             <div className="spoke"></div>
           </div>
+          <span>
+            loading may take some time cause of online server low latency
+          </span>
         </div>
       ) : (
         <div

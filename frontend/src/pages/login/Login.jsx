@@ -20,13 +20,10 @@ const Login = () => {
   const handleLogin = async () => {
     setLoading(true);
     try {
-      const response = await axios.post(
-        `${backendUrl}/auth/login`,
-        {
-          username,
-          password,
-        }
-      );
+      const response = await axios.post(`${backendUrl}/auth/login`, {
+        username,
+        password,
+      });
       const token = response.data.token;
       localStorage.setItem("token", token);
       localStorage.setItem("username", username);
@@ -74,10 +71,11 @@ const Login = () => {
             </div>
             <div className="spoke"></div>
           </div>
+          <span>loading may take some time cause of online server low latency</span>
         </div>
       ) : (
         <div
-        className="login-main-container"
+          className="login-main-container"
           style={{
             background: isDarkMode
               ? "linear-gradient(180deg, #272727 0%, #151515 100%)"

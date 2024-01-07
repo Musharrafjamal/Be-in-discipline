@@ -127,6 +127,9 @@ const ToDo = () => {
             </div>
             <div className="spoke"></div>
           </div>
+          <span>
+            loading may take some time cause of online server low latency
+          </span>
         </div>
       ) : (
         <div
