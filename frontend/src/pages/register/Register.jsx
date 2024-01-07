@@ -25,7 +25,7 @@ const Register = () => {
     console.log({ username, email, password, profilePic });
     try {
       await axios.post(
-        `${localUrl}/auth/register`,
+        `${backendUrl}/auth/register`,
         {
           username,
           email,

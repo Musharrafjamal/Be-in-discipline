@@ -50,7 +50,7 @@ const ToDo = () => {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`${localUrl}/auth/app/${username}`);
+      const response = await axios.get(`${backendUrl}/auth/app/${username}`);
       setList(response.data.item);
       // console.log(response.data)
     } catch (error) {
@@ -67,7 +67,7 @@ const ToDo = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post(`${localUrl}/auth/app/${username}`, {
+      await axios.post(`${backendUrl}/auth/app/${username}`, {
         title: title.toUpperCase(),
         item: newItem,
         date,
@@ -84,7 +84,7 @@ const ToDo = () => {
   const handleDeleteItem = async (i) => {
     setLoading(true);
     try {
-      await axios.delete(`${localUrl}/auth/app/${username}/${i}`);
+      await axios.delete(`${backendUrl}/auth/app/${username}/${i}`);
       console.log(`Item with id ${i} deleted successfully`);
 
       setList((prevList) => prevList.filter((item, index) => index !== i));

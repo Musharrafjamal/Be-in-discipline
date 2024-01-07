@@ -21,7 +21,7 @@ const Login = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        `${localUrl}/auth/login`,
+        `${backendUrl}/auth/login`,
         {
           username,
           password,
