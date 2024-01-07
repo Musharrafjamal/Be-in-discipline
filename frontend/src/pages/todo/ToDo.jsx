@@ -40,6 +40,9 @@ const ToDo = () => {
   const hours = padWithZero(currentDateAndTime.getHours());
   const minutes = padWithZero(currentDateAndTime.getMinutes());
 
+  const localUrl = "http://localhost:5000";
+  const backendUrl = "https://beindescipline-server.onrender.com";
+
   useEffect(() => {
     setDate(`${day}-${month}-${year}`);
     setTime(`${hours}:${minutes}`);
@@ -47,9 +50,7 @@ const ToDo = () => {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(
-        `https://beindescipline-server.onrender.com/auth/app/${username}`
-      );
+      const response = await axios.get(`${localUrl}/auth/app/${username}`);
       setList(response.data.item);
       // console.log(response.data)
     } catch (error) {
@@ -66,15 +67,12 @@ const ToDo = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post(
-        `https://beindescipline-server.onrender.com/auth/app/${username}`,
-        {
-          title: title.toUpperCase(),
-          item: newItem,
-          date,
-          time,
-        }
-      );
+      await axios.post(`${localUrl}/auth/app/${username}`, {
+        title: title.toUpperCase(),
+        item: newItem,
+        date,
+        time,
+      });
       setList((prevList) => [...prevList, { item: newItem }]);
       // fetchData();
     } catch (err) {
@@ -86,9 +84,7 @@ const ToDo = () => {
   const handleDeleteItem = async (i) => {
     setLoading(true);
     try {
-      await axios.delete(
-        `https://beindescipline-server.onrender.com/auth/app/${username}/${i}`
-      );
+      await axios.delete(`${localUrl}/auth/app/${username}/${i}`);
       console.log(`Item with id ${i} deleted successfully`);
 
       setList((prevList) => prevList.filter((item, index) => index !== i));

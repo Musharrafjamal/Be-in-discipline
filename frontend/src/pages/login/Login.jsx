@@ -15,12 +15,13 @@ const Login = () => {
   const isDarkMode = useSelector(toogleSelector);
 
   const navigate = useNavigate();
-
+  const localUrl = "http://localhost:5000";
+  const backendUrl = "https://beindescipline-server.onrender.com";
   const handleLogin = async () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "https://beindescipline-server.onrender.com/auth/login",
+        `${localUrl}/auth/login`,
         {
           username,
           password,

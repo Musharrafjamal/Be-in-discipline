@@ -17,13 +17,15 @@ const Register = () => {
   const [profilePicUploadedMsg, setProfilePicUploadedMsg] = useState("");
 
   const navigate = useNavigate();
+  const localUrl = "http://localhost:5000";
+  const backendUrl = "https://beindescipline-server.onrender.com";
 
   const handleRegister = async () => {
     setLoading(true);
     console.log({ username, email, password, profilePic });
     try {
       await axios.post(
-        "https://beindescipline-server.onrender.com/auth/register",
+        `${localUrl}/auth/register`,
         {
           username,
           email,
